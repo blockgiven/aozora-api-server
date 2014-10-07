@@ -37,3 +37,4 @@ gem 'spring',        group: :development
 
 # Use debugger
 gem 'byebug', group: [:development, :test]
+gem 'rubyzip'
