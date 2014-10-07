@@ -6,7 +6,7 @@ namespace :aozora do
   desc 'download csv from aozora.gr.jp'
   task :download do
     {
-      "list_person_all_utf8.csv" => "http://www.aozora.gr.jp/index_pages/list_person_all_utf8.zip",
+      "list_person_all_utf8.csv"          => "http://www.aozora.gr.jp/index_pages/list_person_all_utf8.zip",
       "list_person_all_extended_utf8.csv" => "http://www.aozora.gr.jp/index_pages/list_person_all_extended_utf8.zip"
     }.each do |filename, download_url|
       open(download_url) do |zip|
