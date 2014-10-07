@@ -3,6 +3,6 @@
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
 
-# Precompile additional assets.
-# application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-# Rails.application.config.assets.precompile += %w( search.js )
+# compile downloaded aozora csvs
+Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'csvs')
+Rails.application.config.assets.precompile += %w( list_person_all_utf8.csv list_person_all_extended_utf8.csv )

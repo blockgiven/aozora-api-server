@@ -18,5 +18,5 @@
 /vendor/bundle/
 
 # aozora
-public/list_person_all_extended_utf8.csv
-public/list_person_all_utf8.csv
+app/assets/csvs/list_person_all_extended_utf8.csv
+app/assets/csvs/list_person_all_utf8.csv

@@ -16,7 +16,7 @@ namespace :aozora do
         end
         Zip::File.open(zipfile.path) do |zipfile|
           entry = zipfile.find_entry(filename)
-          entry.extract(Rails.root.join('public', filename))
+          entry.extract(Rails.root.join('app', 'assets', 'csvs', filename))
         end
       end
     end
