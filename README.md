@@ -1,6 +1,4 @@
-# 青空文庫APIサーバー
-
-青空文庫APIサーバー
+# 青空文庫APIサーバー [![Build Status](https://travis-ci.org/blockgiven/aozora-api-server.svg)](https://travis-ci.org/blockgiven/aozora-api-server)
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 

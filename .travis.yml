@@ -1,2 +1,9 @@
+deploy:
+  app: aozora-api
+  provider: heroku
+  strategy: api
+  api_key:
+    secure: SPahts0G9HmgoBvaTHU7A89U36SV9LYRqk0q/yX36h1CoqN3jrULq5QvMV8XFbNf/GA0WajL4XUT/NIkzYBF4tdyrXhJeqo0Zezoupr8EWkiAHN1H8Dt3xbQAaGx3Efjsgi3dWRSKBGvHX14hp3ohu63k2KdAeATQ150oaD/x08=
 language: ruby
 rvm: 2.1.3
+script: echo deploy!
