@@ -13,15 +13,16 @@ namespace :aozora do
 
       next if File.exist?(dest_path)
 
-      open(download_url) do |zip|
-        zipfile = Tempfile.open(%w(csv .zip), encoding: Encoding::BINARY) do |zipfile|
+      zipfile = open(download_url) do |zip|
+        Tempfile.open(%w(csv .zip), encoding: Encoding::BINARY) do |zipfile|
           zipfile.write zip.read
           zipfile
         end
-        Zip::File.open(zipfile.path) do |zipfile|
-          entry = zipfile.find_entry(filename)
-          entry.extract(dest_path)
-        end
+      end
+
+      Zip::File.open(zipfile.path) do |zipfile|
+        entry = zipfile.find_entry(filename)
+        entry.extract(dest_path)
       end
     end
   end
