@@ -13,6 +13,14 @@
 
 ## Endpoint
 
+### GET /books/random.json
+
+information about an book.
+
+- title
+- url
+- opening_sentence
+
 ### GET /books/random/sentences/1.txt
 
 first sentence of an book.
