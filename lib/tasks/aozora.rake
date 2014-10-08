@@ -9,6 +9,10 @@ namespace :aozora do
       "list_person_all_utf8.csv"          => "http://www.aozora.gr.jp/index_pages/list_person_all_utf8.zip",
       "list_person_all_extended_utf8.csv" => "http://www.aozora.gr.jp/index_pages/list_person_all_extended_utf8.zip"
     }.each do |filename, download_url|
+      dest_path = Rails.root.join('app', 'assets', 'csvs', filename)
+
+      next if File.exist?(dest_path)
+
       open(download_url) do |zip|
         zipfile = Tempfile.open(%w(csv .zip), encoding: Encoding::BINARY) do |zipfile|
           zipfile.write zip.read
@@ -16,7 +20,7 @@ namespace :aozora do
         end
         Zip::File.open(zipfile.path) do |zipfile|
           entry = zipfile.find_entry(filename)
-          entry.extract(Rails.root.join('app', 'assets', 'csvs', filename))
+          entry.extract(dest_path)
         end
       end
     end
