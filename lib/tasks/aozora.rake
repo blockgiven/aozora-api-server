@@ -22,3 +22,6 @@ namespace :aozora do
     end
   end
 end
+
+# download aozora csv before assets:precompile run
+Rake::Task['assets:precompile'].enhance(['aozora:download'])
