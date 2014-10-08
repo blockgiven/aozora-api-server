@@ -6,6 +6,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jbuilder',     '~> 2.0'
 gem 'jquery-rails'
 gem 'nokogiri'
+gem 'pg'
 gem 'pry-rails',                group: :development
 gem 'pry-byebug',               group: :development
 gem 'rails',        '4.1.6'
