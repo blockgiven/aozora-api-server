@@ -10,8 +10,8 @@ module AozoraLibrary
     end
 
     def each
-      text.split(/(。|．)/).each do |sentence|
-        yield "#{sentence}#{$1}".gsub(/(?:^　|　$|\n|\r)/, '').chomp
+      text.split(/。/).each do |sentence|
+        yield "#{sentence}。".gsub(/(?:^　+|　+$|\n|\r)/, '').chomp
       end
     end
 
