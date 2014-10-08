@@ -2,6 +2,8 @@
 
 青空文庫APIサーバー
 
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 ## Usage
 
     $ git clone git@github.com:blockgiven/aozora-api-server.git

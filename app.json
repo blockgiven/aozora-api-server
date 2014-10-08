@@ -1,0 +1,10 @@
+{
+  "description": "青空文庫APIサーバー",
+  "keywords": [
+    "青空文庫",
+    "aozora"
+  ],
+  "name": "青空文庫APIサーバー",
+  "repository": "https://github.com/block_given/aozora-api-server",
+  "website": "https://github.com/block_given/aozora-api-server"
+}
