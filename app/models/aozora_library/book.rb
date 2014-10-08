@@ -23,6 +23,10 @@ module AozoraLibrary
       raw_text.gsub(/［＃[^］]*］/, '')
     end
 
+    def title
+      @book_hash['作品名']
+    end
+
     private
 
     def html
