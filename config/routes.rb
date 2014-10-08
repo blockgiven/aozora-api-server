@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :books, only: [], id: /random/ do
+    resources 'sentences', only: :show, id: /1/
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
