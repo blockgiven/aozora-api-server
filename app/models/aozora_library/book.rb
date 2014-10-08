@@ -1,6 +1,5 @@
 require 'nkf'
 require 'open-uri'
-require 'zip'
 
 module AozoraLibrary
   class Book
@@ -12,40 +11,26 @@ module AozoraLibrary
 
     def each
       text.split(/(。|．)/).each do |sentence|
-        yield sentence
+        yield "#{sentence}#{$1}".gsub(/(?:^　|　$|\n|\r)/, '').chomp
       end
     end
 
-    def text_url
-      @book_hash['テキストファイルURL']
+    def url
+      @book_hash['XHTML/HTMLファイルURL']
     end
 
     def text
-      raw_text.split(headnote_separator)[2].gsub(/［＃[^］]*］/, '')
+      raw_text.gsub(/［＃[^］]*］/, '')
     end
 
     private
 
-    def headnote_separator
-      "-" * 55
+    def html
+      @html ||= NKF.nkf('-w', open(url).read)
     end
 
     def raw_text
-      return @raw_text if @raw_text
-
-      zipfile = open(text_url) do |zip|
-        Tempfile.open(%w(csv .zip), encoding: Encoding::BINARY) do |zipfile|
-          zipfile.write zip.read
-          zipfile
-        end
-      end
-
-      Zip::File.open(zipfile.path) do |zipfile|
-        entry = zipfile.glob('**/*.txt').first
-        @raw_text = NKF.nkf('-w', entry.get_input_stream.read)
-      end
-
-      @raw_text
+      Nokogiri::HTML.parse(html).at_css('.main_text').text
     end
   end
 end
